@@ -1,6 +1,6 @@
-**Date**<br>
-**Course Code & Course Name**<br>
-**Student's First Name & Last Name**<br>
+**November 4, 2024** <br>
+**MPAD2003A**<br>
+**Rana Mohammed**<br>
 **Presented to Jean-Sébastien Marier**<br>
 
 # Midterm Project: Exploratory Data Analysis (EDA)
@@ -24,7 +24,30 @@ And to create an unordered list, we simply put a star (`*`) before each item.
 
 ## 1. Introduction
 
-Insert text here.
+This assignment analyzes a subset of a City of Ottawa dataset called "2024 Service Requests" that provides a summary of requests for services that require action by City staff. The data extracted for this assignment is a smaller dataset of the original that contains only the data from August 2024.
+
+The data was collected from 311 Contact Centre, Client Service Centre, 311 Email, and Web-based Self-Service portal. The data is organized by ward and shows the responsible city department and service request description.
+
+The data includes:
+- Service Request ID and number
+- Status
+- Description of request
+- Type
+- Opened and Closed Date
+- Address, Latitude, and Longitude
+- Ward Number that request relates to and Channel is was created in.
+
+Link to the original dataset on [Open Ottawa](https://open.ottawa.ca/documents/65fe42e2502d442b8a774fd3d954cac5/about)<br>
+Link to [CSV file](https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv) of smaller dataset.
+
+This Assignment will discuss:
+**Getting data**
+**VIMO Analysis**
+**Cleaning Data**
+**Exploratory Data Analysis**
+**Potential Story**
+**Conclusion**
+**References**
 
 ## 2. Getting Data
 
