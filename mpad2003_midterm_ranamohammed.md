@@ -53,6 +53,26 @@ This Assignment will discuss:
 
 Use two hashtag symbols (`##`) to create a level 2 heading like this one.
 
+##Importating Data into Google Sheets.
+After clicking the csv file it will open as text on a website. To fix this open up your terminal and type cd and your directory. This will move the csv file to your chosen directory. I moved mine to downloads.
+
+[insert image]
+
+Then you should type curl with the url of the file after. Curl is a command-line tool that will transferr data with URL's. 
+
+The csv should then be saved in you computer
+[insert image]
+
+Now to import the data into google sheets, open a blank sheet and go to file at the top left. Clcik on import.
+[insert image]
+
+this should pop up, go to upload and brows for the csv file or directly drag it into the box.
+
+once you open the file, change the separator type to Comma and press import data.
+[insert image]
+
+
+
 To include a screen capture, use the sample code below. Your images should be saved in the same folder as your `.md` file.
 
 ![](import-screen-capture.png)<br>
