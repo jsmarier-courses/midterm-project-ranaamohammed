@@ -28,7 +28,7 @@ This assignment analyzes a subset of a City of Ottawa dataset called "2024 Servi
 
 The data was collected from 311 Contact Centre, Client Service Centre, 311 Email, and Web-based Self-Service portal. The data is organized by ward and shows the responsible city department and service request description.
 
-The data includes:
+**The data includes:**
 - Service Request ID and number
 - Status
 - Description of request
@@ -37,17 +37,18 @@ The data includes:
 - Address, Latitude, and Longitude
 - Ward Number that request relates to and Channel is was created in.
 
-Link to the original dataset on [Open Ottawa](https://open.ottawa.ca/documents/65fe42e2502d442b8a774fd3d954cac5/about)<br>
-Link to [CSV file](https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv) of smaller dataset.
+**Links to datasets:**
+ [Open Ottawa original dataset](https://open.ottawa.ca/documents/65fe42e2502d442b8a774fd3d954cac5/about)
+[CSV File of assignment dataset](https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv)
 
-This Assignment will discuss:
-**Getting data**
-**VIMO Analysis**
-**Cleaning Data**
-**Exploratory Data Analysis**
-**Potential Story**
-**Conclusion**
-**References**
+**This Assignment will discuss:**
+1. Getting data
+1. VIMO Analysis
+1. Cleaning Data
+1. Exploratory Data Analysis
+1. Potential Story
+1. Conclusion
+1. References
 
 ## 2. Getting Data
 
@@ -80,6 +81,14 @@ The data looks messy and crowded. The desciption inlcudes both french and englis
 **Specific observations**
 
 Column C features nominal feautures with types of service request. Column H shows the latitude with continuous varables, most of the data is missing though.
+
+**Question/Hypothesis**
+
+Do some wards get more of a specific type of service request such as Garbage and Recycling than other wards?
+
+I hypothesis that garbage and Recycling reqests are more common in dense wards, such as ward 14 (Somerset) which covers the downtown and centretown area.
+
+Are certain 
 
 
 To include a screen capture, use the sample code below. Your images should be saved in the same folder as your `.md` file.
@@ -125,10 +134,6 @@ Since there are no invalid or outliers data we can canclude that the data is rel
 
 
 
-
-
-
-
 Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
 
 **For example:**
@@ -137,7 +142,20 @@ As Cairo (2016) argues, a data visualization should be truthful...
 
 ### 3.2. Cleaning Data
 
-The first thing I did to clean my data
+The first thing I did to clean my data was resize the column sizes to see all the values. I did this by selecting everything and double clicking between 2 columns which automatically resizes all the columns.
+[insert image]
+
+I wanted to be able to individually look the different types of requests, status, and channel so I applied filters by seleting the first row, right clicking and pressing apply filters. Then to know what column I am looking at, I froze the first row by selecting it, going to view, freeze and selecting 1 row. This way the titles will show no matter how far down I scroll.
+[insert image]
+
+Column D is too crowded and messy because it includes both english and french descriptions. I deleted the french part by using the SPLIT function. first I right-clicked on the column to make 1 column on the right then did that again till I had 2. On the second row of the blank I typed =SPLIT(D2; "|"). This function splits the text at | which divides the french and english descriptions. I applied this function to both entire columns by double clicking on the bottom right circle of the box because dragging it down is too time consuming.
+[insert image]
+
+In order to delete the original column I selected both new columns, copied them then went to edit at the top left corner and pressed paste special, paste values only. 
+
+Since I deleted the french portion, I also went ahead and removed the french part of the titles manually for a cleaner look.
+
+Lastly, I deleted the address, langitude, and longitude columns because I don't find it important to know where the request was made.Most of the values for them are missing because they're only displayed for  public service requests.
 
 ### 3.3. Exploratory Data Analysis (EDA)
 
