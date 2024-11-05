@@ -52,60 +52,49 @@ The data was collected from 311 Contact Centre, Client Service Centre, 311 Email
 
 ## 2. Getting Data
 
-Use two hashtag symbols (`##`) to create a level 2 heading like this one.
 
 **Importating Data into Google Sheets**
-After clicking the csv file it will open as text on a website. To fix this open up your terminal and type cd and your directory. This will move the csv file to your chosen directory. I moved mine to downloads.
 
-[insert image]
+After clicking the csv file it will open as text on browser. To fix this open up your terminal and type `cd` followed by a directory. This will move the csv file to your chosen directory. I moved mine to downloads.
 
-Then you should type curl with the url of the file after. Curl is a command-line tool that will transferr data with URL's. 
+![](terminal.png)
+*Figure 1: The Terminal Command-lines for saving URL as CSV*<br>
+Then type `curl` with the URL of the file after. Curl is a command-line tool that will transferr data with URL's.  
+`curl https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv`
 
-The csv should then be saved in you computer
-[insert image]
+The csv should then be saved in you computer at the directory you chose.<br>
+![](csv-in-finder.png)
+*Figure 2: The CSV file saved in the Downloads folder*<br>
+Now to import the data into google sheets, open a blank sheet and go to file at the top left then click on import. A window will pop up, go to upload and brows for the csv file or directly drag it into the box. Once you open the file, change the separator type to Comma and press import data.
 
-Now to import the data into google sheets, open a blank sheet and go to file at the top left. Clcik on import.
-[insert image]
+![](comma-separator.png)
+*Figure 3: The Comma Separator Option in Google Sheets*<br>
+This is what your dataset should look like.
 
-this should pop up, go to upload and brows for the csv file or directly drag it into the box.
-
-once you open the file, change the separator type to Comma and press import data.
-[insert image]
-
-This is what it should look like.
-
+![](unclean-data.png)
+*Figure 4: The Uncleaned Dataset in Google Sheets*<br>
+[Public link to Google Sheet](https://docs.google.com/spreadsheets/d/1xgc5wnBqV-g7zAoFDNu-GEZtAgVmf5457g1r5QSJPEo/edit?usp=sharing)<br>
 **General observations**
-There are 11 columns and 28539 rows. 
-The data looks messy and crowded. The desciption inlcudes both french and english in one column which makes it too long. There is alot of missing data
 
+There are 11 columns and 28539 rows. 
+The data looks messy and crowded escpecially the desciption because it inlcudes both french and english in one column. There is alot of missing data in the latitude, longitude, and address columns.
 **Specific observations**
 
-Column C features nominal feautures with types of service request. Column H shows the latitude with continuous varables, most of the data is missing though.
+Column C features nominal veriables with type of service request. 
+Column H shows the latitude with continuous varables, most of the data is missing though.
+
 
 **Question/Hypothesis**
 
-Do some wards get more of a specific type of service request such as Garbage and Recycling than other wards?
+*Do some wards get more of a specific type of service request such as Garbage and Recycling than other wards?*
 
-I hypothesis that garbage and Recycling reqests are more common in dense wards, such as ward 14 (Somerset) which covers the downtown and centretown area.
+I hypothesis that Garbage and Recycling reqests are more common in dense wards, such as ward 14 (Somerset) which covers the downtown and centretown area.<br>
+![](wards.png)
+*Figure 5: The Wards of Ottawa*<br>
+*Are certain service requests more common to be cancelled or still active?*
 
-Are certain 
+Road and transportation requests are more likely to still be active because they take longer to fix.
 
-
-To include a screen capture, use the sample code below. Your images should be saved in the same folder as your `.md` file.
-
-![](import-screen-capture.png)<br>
-*Figure 1: The "Import file" prompt on Google Sheets.*
-
-**Here are examples of functions and lines of code put in grey boxes:**
-
-1. If you name a function, put it between "angled" quotation marks like this: `IMPORTHTML`.
-1. If you want to include the entire line of code, do the same thing, albeit with your entire code: `=IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)`.
-1. Alternatively, you can put your code in an independent box using the template below:
-
-``` r
-=IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)
-```
-This also shows how to create an ordered list. Simply put `1.` before each item.
 
 ## 3. Understanding Data
 
@@ -129,7 +118,7 @@ Most of the values for Latitude, longitude, and address are missing as well.
 **Outliers**
 There isn't any noticable outliers in the dataset
 
-**Is the data reliable**
+**Is the data reliable?**
 Since there are no invalid or outliers data we can canclude that the data is reliable, there are a few missing values but that does not effect the understanding of the dataset.
 
 
@@ -142,11 +131,8 @@ As Cairo (2016) argues, a data visualization should be truthful...
 
 ### 3.2. Cleaning Data
 
-The first thing I did to clean my data was resize the column sizes to see all the values. I did this by selecting everything and double clicking between 2 columns which automatically resizes all the columns.
-[insert image]
-
-I wanted to be able to individually look the different types of requests, status, and channel so I applied filters by seleting the first row, right clicking and pressing apply filters. Then to know what column I am looking at, I froze the first row by selecting it, going to view, freeze and selecting 1 row. This way the titles will show no matter how far down I scroll.
-[insert image]
+The first thing I did to clean my data was resize the column sizes to see all the values. I did this by selecting everything and double clicking between 2 columns which automatically resizes all of them.<br>
+I wanted to be able to individually look the different types of requests, status, and channel. I applied filters by selecting the entire first row, right clicking and pressing apply filters. Then to know what column I am looking at, I froze the first row by selecting it, going to view, freeze and selecting 1 row. This way the titles will show no matter how far down I scroll.<br>
 
 Column D is too crowded and messy because it includes both english and french descriptions. I deleted the french part by using the SPLIT function. first I right-clicked on the column to make 1 column on the right then did that again till I had 2. On the second row of the blank I typed =SPLIT(D2; "|"). This function splits the text at | which divides the french and english descriptions. I applied this function to both entire columns by double clicking on the bottom right circle of the box because dragging it down is too time consuming.
 [insert image]
