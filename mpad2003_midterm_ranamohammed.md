@@ -53,7 +53,7 @@ This Assignment will discuss:
 
 Use two hashtag symbols (`##`) to create a level 2 heading like this one.
 
-##Importating Data into Google Sheets.
+**Importating Data into Google Sheets**
 After clicking the csv file it will open as text on a website. To fix this open up your terminal and type cd and your directory. This will move the csv file to your chosen directory. I moved mine to downloads.
 
 [insert image]
@@ -71,6 +71,15 @@ this should pop up, go to upload and brows for the csv file or directly drag it 
 once you open the file, change the separator type to Comma and press import data.
 [insert image]
 
+This is what it should look like.
+
+**General observations**
+There are 11 columns and 28539 rows. 
+The data looks messy and crowded. The desciption inlcudes both french and english in one column which makes it too long. There is alot of missing data
+
+**Specific observations**
+
+Column C features nominal feautures with types of service request. Column H shows the latitude with continuous varables, most of the data is missing though.
 
 
 To include a screen capture, use the sample code below. Your images should be saved in the same folder as your `.md` file.
@@ -95,7 +104,30 @@ This also shows how to create an ordered list. Simply put `1.` before each item.
 
 Use three hashtag symbols (`###`) to create a level 3 heading like this one. Please follow this template when it comes to level 1 and level 2 headings. However, you can use level 3 headings as you see fit.
 
-Insert text here.
+I will assess the quality, accuracy, and reliability of the data by conducting a VIMO analysis, mainly focusing on the three columns mentioned in the previous section.
+VIMO is an acronym for valid, invalid, missing and outlier data values.
+
+For data to be accurate, the values are valid, not blank and within a valid range.
+
+**Invalid values**
+
+Invalid data are values that are impossible or make no sense in the dataset.
+
+**Missing**
+There are many missing values in this dataset including the descriptions in column d for most water and the environment type in column C.
+Most of the values for Latitude, longitude, and address are missing as well.
+
+**Outliers**
+There isn't any noticable outliers in the dataset
+
+**Is the data reliable**
+Since there are no invalid or outliers data we can canclude that the data is reliable, there are a few missing values but that does not effect the understanding of the dataset.
+
+
+
+
+
+
 
 Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
 
@@ -105,7 +137,7 @@ As Cairo (2016) argues, a data visualization should be truthful...
 
 ### 3.2. Cleaning Data
 
-Insert text here.
+The first thing I did to clean my data
 
 ### 3.3. Exploratory Data Analysis (EDA)
 
