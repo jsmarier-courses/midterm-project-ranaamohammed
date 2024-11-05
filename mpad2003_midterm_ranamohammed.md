@@ -60,7 +60,9 @@ After clicking the csv file it will open as text on browser. To fix this open up
 ![](terminal.png)
 *Figure 1: The Terminal Command-lines for saving URL as CSV*<br>
 Then type `curl` with the URL of the file after. Curl is a command-line tool that will transferr data with URL's.  
-`curl https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv`
+``` r
+curl https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv
+```
 
 The csv should then be saved in you computer at the directory you chose.<br>
 ![](csv-in-finder.png)
