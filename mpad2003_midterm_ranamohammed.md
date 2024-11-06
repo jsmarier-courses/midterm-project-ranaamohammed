@@ -5,15 +5,11 @@
 
 # Midterm Project: Exploratory Data Analysis (EDA)
 
-
-* [The template repository for this assignment in case you delete something by mistake](https://github.com/jsmarier/jou4100_jou4500_mpad2003_project2_template)
-
-
 ## 1. Introduction
 
-This assignment analyzes a subset of a City of Ottawa dataset called "2024 Service Requests" that provides a summary of requests for services that require action by City staff. The data extracted for this assignment is a smaller dataset of the original that contains only the data from August 2024.
+This assignment analyzes a subset of a City of Ottawa dataset called "2024 Service Requests" which provides a summary of requests for services that require action by City staff. The data extracted for this assignment is a smaller dataset than the original one that contains only the data from August 2024.
 
-The data was collected from 311 Contact Centre, Client Service Centre, 311 Email, and Web-based Self-Service portal. The data is organized by ward and shows the responsible city department and service request description.
+The data was collected from the 311 Contact Centre, Client Service Centre, 311 Email, and the Web-based Self-Service portal. The data is organized by ward and shows the responsible city department and service request description.
 
 **The data includes:**
 - Service Request ID and number
@@ -22,11 +18,13 @@ The data was collected from 311 Contact Centre, Client Service Centre, 311 Email
 - Type
 - Opened and Closed Date
 - Address, Latitude, and Longitude
-- Ward Number that request relates to and Channel is was created in.
+- Ward Number that the request relates to and the Channel it was created in.
+
 
 **Links to datasets:**
- [Open Ottawa original dataset](https://open.ottawa.ca/documents/65fe42e2502d442b8a774fd3d954cac5/about)
+[Open Ottawa original dataset](https://open.ottawa.ca/documents/65fe42e2502d442b8a774fd3d954cac5/about)
 [CSV File of assignment dataset](https://raw.githubusercontent.com/jsmarier/course-datasets/refs/heads/main/ottawa-311-service-requests-august-2024.csv)
+
 
 **This Assignment will discuss:**
 1. Getting data
@@ -37,11 +35,10 @@ The data was collected from 311 Contact Centre, Client Service Centre, 311 Email
 1. Conclusion
 1. References
 
+
 ## 2. Getting Data
 
-
 **Importing Data into Google Sheets**
-
 
 After clicking the CSV file it will open as text on the browser. To fix this, open up your terminal and type `cd` followed by a directory. This will move the CSV file to your chosen directory. I moved mine to downloads.
 
@@ -75,10 +72,9 @@ Column C features the type of service request using nominal variables. Column H 
 *Do some wards get more of a specific type of service request, such as Garbage and Recycling than other wards?*<br>
 I hypothesize that service requests such as Parking Control enforcement and Roads and Transportation are more common in dense wards like 14 (Somerset), which covers the downtown and centre-town area.<br>
 ![](wards.png)
-*Figure 5: The Wards of Ottawa in The Downtown Region*<br>
+*Figure 5: The Wards of Ottawa in The Downtown Region from City of Ottawa website*<br>
 *Are certain service requests more common to be cancelled or still active?*<br>
 Road and transportation requests are more likely to remain active because they take longer to fix.
-
 
 
 ## 3. Understanding Data
@@ -89,9 +85,7 @@ I will assess the quality, accuracy, and reliability of the data by conducting a
 VIMO is an acronym for **V**alid, **I**nvalid, **M**issing and **O**utlier data values.
 
 **Valid values**
-For data to be accurate, the values are valid, meaning not blank and within a valid range.
-The data in the dataset is valid because there are no impossible values and the data is within a valid range.
-
+For data to be accurate, the values are valid, meaning not blank and within a valid range. The data in the dataset is valid because there are no impossible values and the data is within a valid range.
 
 **Invalid values**
 Invalid data are values that are impossible or make no sense in the dataset.
@@ -100,28 +94,24 @@ There are no invalid values in this dataset.
 **Missing**
 There are many missing values in this dataset including the descriptions in column d for most water and the environment type in column C.
 Most of the values for Latitude, longitude, and address are missing as well.
-However, the missing data is not left blank, it is marked as "\N" which is a valid way to show missing data.
-
+However, the missing data is not left blank, it is marked as "\N".<br>
+![](missing-data.png)
+*Figure 6: Missing Data in the Dataset*<br>
 **Outliers**
-There isn't any noticable outliers in the dataset. 
+There isn't any noticable outliers in the dataset. The data is consistent and there are no values that are significantly different from the rest.
 
 **Is the data reliable?**
-Since there are no invalid or outlier data we can canclude that the data is reliable, there are a few missing values but that does not effect the understanding of the dataset. 
+As mentioned in the data accuracy and validation video from module 5 (Government of Canada, 2022), the VIMO analysis is used to produce a frequency distribution of key variables and look at the proportion of valid, invalid, missing and outlier values.
+Since there is no invalid or outlier data, and there is more valid data than missing. we can conclude that the data is reliable, the missing values do not affect the understanding of the dataset.
 
 
-
-Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
-
-**For example:**
-
-As Cairo (2016) argues, a data visualization should be truthful...
 
 ### 3.2. Cleaning Data
 
 The first thing I did to clean my data was resize the column sizes to see all the values. I did this by selecting everything and double-clicking between 2 columns which automatically resizes all of them.<br>
 I wanted to be able to individually look at the different types of requests, statuses, and channels. I applied filters by selecting the entire first row, right-clicking and pressing apply filters. Then to know what column I was looking at, I froze the first row by selecting it, going to view, freeze and selecting 1 row. This way the titles will show no matter how far down I scroll.<br>
 ![](Freeze-row.png)
-*Figure 6: Freezing the First Row in Google Sheets*<br>
+*Figure 7: Freezing the First Row in Google Sheets*<br>
 
 
 Column D is too crowded and messy because it includes both English and French descriptions. I deleted the French part by using the `SPLIT` function.<br>
@@ -132,7 +122,7 @@ Since I deleted the French portion, I also went ahead and removed the French par
 Lastly, I deleted the address, latitude, and longitude columns because I didn’t find it important to know where the request was made. Most of the values for them are missing because they are only displayed for public service requests.<br>
 Here is the cleaned dataset:
 ![](clean-data.png)
-*Figure 7: The Cleaned Dataset in Google Sheets*<br>
+*Figure 8: The Cleaned Dataset in Google Sheets*<br>
 
 
 ### 3.3. Exploratory Data Analysis (EDA)
@@ -141,10 +131,10 @@ For the Exploratory Data Analysis, I created a pivot table to see the number of 
 For row, I selected channel, for values I selected service request ID and set summarize by to COUNTA. This way I can see the number of requests for each channel.<br>
 **Pivot Table**<br>
 ![](pivot.png)
-*Figure 8: This pivot table shows the number of service requests for each Channel*<br>
-I created a chart to visualize the data. I selected the entire pivot table, went to insert at the top left and selected chart. I chose a bar chart because it is the best way to compare the number of requests for each channel. <br>
+*Figure 9: This pivot table shows the number of service requests for each Channel*<br>
+I created a chart to visualize the data. I selected the entire pivot table, went to insert at the top left and selected chart. I chose a bar chart because as mentioned in the Statistics Canada reading (Government of Canada, 2021), Vertical bar charts are useful to compare different categorical or discrete variables, as long as there are not too many categories to compare. <br>
 ![](chart.png)
-*Figure 9: This exploratory chart shows the number of service requests for each Channel*
+*Figure 10: This exploratory chart shows the number of service requests for each Channel*
 
 I chose these variables because I was curious to see which channel was used the most to make service requests and why. I hypothesized that the web would be the most common because it is the easiest and quickest way to make a request. The data supports this hypothesis as the web is the second most common channel. The most common is dispatch which isn't surprising since they are responsible for receiving and transmitting information about issues that require action by city staff.<br>
 This could delve into a potential story as to why people don't use more "traditional" ways to make service requests instead of relying on the internet.<br>
@@ -158,9 +148,14 @@ I would interview a City of Ottawa employee to see if they have noticed an incre
 
 ## 5. Conclusion
 
-Insert text here.
+After completing this assignment, I realized that the most challenging part was choosing which variables to use to create my pivot table and chart. I wanted to incorporate more variables like comparing status to different types of requests or wards and channels. However, the pivot table and chart were too crowded and messy so I settled on a simpler dataset. The most rewarding aspect was cleaning my data and seeing it look more organized and easier to read. I identified gaps in my knowledge in the VIMO analysis. I didn't know how to assess the quality in a detailed way by using examples from the dataset. I could have done differently by supporting my claims in a more detailed way using more sources. Next time I would also like to explore more hypotheses and questions to write up potential stories from them.
+
 
 ## 6. References
 
-Hemanth, L. K. (2020). *Changing Trends of Social Interaction during the Pandemic and Its Effects on Mental Health – A Student’s Perspective*. Asian Journal of Education and Social Studies, 9(3), 7–14. https://doi.org/10.9734/ajess/2020/v9i330247
 
+GeeksforGeeks. (2024, April 11). Curl command in linux with examples. https://www.geeksforgeeks.org/curl-command-in-linux-with-examples/ <br>
+Government of Canada, S. C. (2021, September 2). 5 Data Visualization 5.2 Bar Chart. 5.2 Bar chart. https://www150.statcan.gc.ca/n1/edu/power-pouvoir/ch9/bargraph-diagrammeabarres/5214818-eng.htm<br>
+Government of Canada, S. C. (2022, May 11). Data accuracy and validation: Methods to ensure the quality of data. Government of Canada, Statistics Canada. https://www.statcan.gc.ca/en/wtc/data-literacy/catalogue/892000062020008<br>
+Hemanth, L. K. (2020). *Changing Trends of Social Interaction during the Pandemic and Its Effects on Mental Health – A Student’s Perspective*. Asian Journal of Education and Social Studies, 9(3), 7–14. https://doi.org/10.9734/ajess/2020/v9i330247<br>
+Ottawa. (n.d.). https://documents.ottawa.ca/sites/default/files/Map_City_Carte_Ville_2022_BIL.pdf 
