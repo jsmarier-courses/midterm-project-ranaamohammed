@@ -6,8 +6,6 @@
 # Midterm Project: Exploratory Data Analysis (EDA)
 
 
-
-
 * [The template repository for this assignment in case you delete something by mistake](https://github.com/jsmarier/jou4100_jou4500_mpad2003_project2_template)
 
 
@@ -47,49 +45,38 @@ The data was collected from 311 Contact Centre, Client Service Centre, 311 Email
 
 After clicking the CSV file it will open as text on the browser. To fix this, open up your terminal and type `cd` followed by a directory. This will move the CSV file to your chosen directory. I moved mine to downloads.
 
-
 ![](terminal.png)
 *Figure 1: The Terminal Command-lines for saving URL as CSV*<br>
 Then type `curl` with the URL of the file after. Curl is a command-line tool that will transfer data with a URL. 
-
 
 The CSV should be saved on your computer in the directory you chose.<br>
 ![](csv-in-finder.png)
 *Figure 2: The CSV file saved in the Downloads folder*<br>
 Now to import the data into Google Sheets, open a blank sheet, go to the file at the top left, then click on import. A window will pop up. Go to upload and browse for the csv file or directly drag it into the box. Once you open the file, change the separator type to Comma and press import data.
 
-
 ![](comma-separator.png)
 *Figure 3: The Comma Separator Option in Google Sheets*<br>
 This is what your dataset should look like.
-
 
 ![](unclean-data.png)
 *Figure 4: The Uncleaned Dataset in Google Sheets*<br>
 [Public link to Google Sheet](https://docs.google.com/spreadsheets/d/1xgc5wnBqV-g7zAoFDNu-GEZtAgVmf5457g1r5QSJPEo/edit?usp=sharing)<br>
 **General observations**
 
-
 There are 11 columns and 28539 rows.
 The data looks messy and crowded, especially the description because it includes both French and English in one column. There is a lot of missing data in the latitude, longitude, and address columns.
 **Specific observations**
-
 
 Column C features the type of service request using nominal variables. Column H shows the latitude with continuous variables, most of the data is missing. Column G displays the ward number belonging to the request in discrete variables. 
 
 
 **Question/Hypothesis**
 
-
-*Do some wards get more of a specific type of service request, such as Garbage and Recycling than other wards?*
-
-
+*Do some wards get more of a specific type of service request, such as Garbage and Recycling than other wards?*<br>
 I hypothesize that service requests such as Parking Control enforcement and Roads and Transportation are more common in dense wards like 14 (Somerset), which covers the downtown and centre-town area.<br>
 ![](wards.png)
-*Figure 5: The Wards of Ottawa*<br>
-*Are certain service requests more common to be cancelled or still active?*
-
-
+*Figure 5: The Wards of Ottawa in The Downtown Region*<br>
+*Are certain service requests more common to be cancelled or still active?*<br>
 Road and transportation requests are more likely to remain active because they take longer to fix.
 
 
@@ -137,21 +124,11 @@ I wanted to be able to individually look at the different types of requests, sta
 *Figure 6: Freezing the First Row in Google Sheets*<br>
 
 
-Column D is too crowded and messy because it includes both English and French descriptions. I deleted the French part by using the `SPLIT` function.
-First I right-clicked on the column to make 1 column on the right then did that again till I had 2. On the second row of the blank, I typed `=SPLIT(D2; "|")`.
-This function splits the text at | which divides the French and English descriptions. I applied this function to both entire columns by double-clicking on the bottom right circle of the box because dragging it down is too time-consuming.
-
-
-
-
-To delete the original column without losing the new ones I selected both new columns, copied them then went to edit at the top left corner and pressed paste special, paste values only.
-
-
-
-
-Since I deleted the French portion, I also went ahead and removed the French part of the titles manually for a cleaner look.
-
-
+Column D is too crowded and messy because it includes both English and French descriptions. I deleted the French part by using the `SPLIT` function.<br>
+First I right-clicked on the column to make 1 column on the right then did that again till I had 2. On the second row of the blank, I typed `=SPLIT(D2; "|")`.<br>
+This function splits the text at | which divides the French and English descriptions. I applied this function to both entire columns by double-clicking on the bottom right circle of the box because dragging it down is too time-consuming. <br>
+To delete the original column without losing the new ones, I selected both new columns, copied them, then went to edit at the top left corner and pressed paste special, paste values only.
+Since I deleted the French portion, I also went ahead and removed the French part of the titles manually for a cleaner look.<br>
 Lastly, I deleted the address, latitude, and longitude columns because I didn’t find it important to know where the request was made. Most of the values for them are missing because they are only displayed for public service requests.<br>
 Here is the cleaned dataset:
 ![](clean-data.png)
@@ -160,16 +137,19 @@ Here is the cleaned dataset:
 
 ### 3.3. Exploratory Data Analysis (EDA)
 
-For the Exploratory Data Analysis, I created a pivot table to see the number of requests for each type of channel. I did this by selecting the entire dataset, going to data at the top left and pressing create pivot table to new sheet.
-For row I selected channel, for values I selected service request ID and set summerize by to COUNTA. This way I can see the number of requests for each channel. <br>
-**Pivot Table**
-
+For the Exploratory Data Analysis, I created a pivot table to see the number of requests for each type of channel. I did this by selecting the entire dataset, going to insert at the top left, pressing the Pivot table and creating a new sheet.<br>
+For row, I selected channel, for values I selected service request ID and set summarize by to COUNTA. This way I can see the number of requests for each channel.<br>
+**Pivot Table**<br>
 ![](pivot.png)
-*Figure 8: This pivot table shows the number of service requests for each Channel*
-
+*Figure 8: This pivot table shows the number of service requests for each Channel*<br>
 I created a chart to visualize the data. I selected the entire pivot table, went to insert at the top left and selected chart. I chose a bar chart because it is the best way to compare the number of requests for each channel. <br>
-![](chart.png)<br>
+![](chart.png)
 *Figure 9: This exploratory chart shows the number of service requests for each Channel*
+
+I chose these variables because I was curious to see which channel was used the most to make service requests and why. I hypothesized that the web would be the most common because it is the easiest and quickest way to make a request. The data supports this hypothesis as the web is the second most common channel. The most common is dispatch which isn't surprising since they are responsible for receiving and transmitting information about issues that require action by city staff.<br>
+This could delve into a potential story as to why people don't use more "traditional" ways to make service requests instead of relying on the internet.<br>
+I also want to use this information as a base to further investigate the data and see if there is a correlation between the channels and other variables. The next step would be to add more data to the pivot table and see if there is a correlation between the channels and the type of service request or the ward number.
+
 
 ## 4. Potential Story
 
@@ -182,7 +162,5 @@ Insert text here.
 
 ## 6. References
 
-Hemanth, L. K. (2020). Changing Trends of Social Interaction during the Pandemic and Its Effects on Mental Health – A Student’s Perspective. Asian Journal of Education and Social Studies, 9(3), 7–14. https://doi.org/10.9734/ajess/2020/v9i330247
+Hemanth, L. K. (2020). *Changing Trends of Social Interaction during the Pandemic and Its Effects on Mental Health – A Student’s Perspective*. Asian Journal of Education and Social Studies, 9(3), 7–14. https://doi.org/10.9734/ajess/2020/v9i330247
 
-
-Bounegru, L., & Gray, J. (Eds.). (2021). *The Data Journalism Handbook 2: Towards A Critical Data Practice*. Amsterdam University Press. [https://ocul-crl.primo.exlibrisgroup.com/permalink/01OCUL_CRL/hgdufh/alma991022890087305153](https://ocul-crl.primo.exlibrisgroup.com/permalink/01OCUL_CRL/hgdufh/alma991022890087305153)
